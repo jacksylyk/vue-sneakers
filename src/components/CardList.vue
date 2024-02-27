@@ -1,11 +1,13 @@
 <script setup>
 import Card from '@/components/Card.vue'
+defineProps({
+  items: Array,
+})
 </script>
 
 <template>
   <div class="grid grid-cols-4 gap-5">
-    <Card image-url="sneakers/sneakers-1.jpg" title="Sneaker 1" :price="60000" :is-added="false"
-          :is-favorite="true" :on-click-add="onClickAdd"></Card>
+    <Card v-for="item in items" :key="item.id" :image-url="item.imageUrl" :title="item.title" :price="item.price"></Card>
   </div>
 </template>
 
